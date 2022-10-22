@@ -21,7 +21,18 @@ const cardContentList = [
       },
     shits:30,
     shareLink:"",
-    clickBait:"Mi a fos történt itt :O"
+    clickBait:"Mechanikus manga trágya :/"
+  },
+  {
+    id:"1",
+    title:"Paradise killer",
+    links:{
+          tumbnail:"https://cdn.akamai.steamstatic.com/steam/apps/1160220/capsule_616x353.jpg?t=1665486746", 
+          bigres:"bigres",
+      },
+    shits:10,
+    shareLink:"",
+    clickBait:"Színes szagos csilli fos"
   },
 ];
 

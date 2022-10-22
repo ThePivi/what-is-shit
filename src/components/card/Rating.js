@@ -1,7 +1,7 @@
 import SmallShit from "./SmallShit";
 
 function shitGenerator(shitNumber) {
-    const ratingShit = 5;
+    const ratingShit = 7;
     const fillShit = Math.round((ratingShit/100)*shitNumber);
     let result = [];
 
