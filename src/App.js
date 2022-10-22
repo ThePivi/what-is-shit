@@ -24,7 +24,7 @@ const cardContentList = [
     clickBait:"Mechanikus manga trágya :/"
   },
   {
-    id:"1",
+    id:"2",
     title:"Paradise killer",
     links:{
           tumbnail:"https://cdn.akamai.steamstatic.com/steam/apps/1160220/capsule_616x353.jpg?t=1665486746", 
@@ -33,6 +33,17 @@ const cardContentList = [
     shits:10,
     shareLink:"",
     clickBait:"Színes szagos csilli fos"
+  },
+  {
+    id:"3",
+    title:"Duke Nukem forever",
+    links:{
+          tumbnail:"https://www.hrkgame.com/media/games/.thumbnails/R4JcM.jpg/R4JcM-460x215.jpg", 
+          bigres:"bigres",
+      },
+    shits:98,
+    shareLink:"",
+    clickBait:"Minőségi kupac szar"
   },
 ];
 
