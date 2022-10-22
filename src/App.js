@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from "./components/card/Card";
+
+const cardContentList = [
+  {
+    id:"0",
+    title:"Genesis: Alpha One",
+    links:{
+          tumbnail:"https://image.api.playstation.com/vulcan/img/cfn/11307xibzNKuM2vnfMfLI1-eSf_SteyhKjlncpo1hT0SkqcMMcgfDqCicTjT0KEHz51hzNQ8CipQyOUFfadriRf2BSA2auFU.jpg", 
+          bigres:"bigres",
+      },
+    shits:10,
+    shareLink:"",
+    clickBait:"Mi a fos történt itt :O"
+  },
+  {
+    id:"1",
+    title:"SHOGO",
+    links:{
+          tumbnail:"https://cdn.cloudflare.steamstatic.com/steam/apps/610860/capsule_616x353.jpg?t=1575943357", 
+          bigres:"bigres",
+      },
+    shits:30,
+    shareLink:"",
+    clickBait:"Mi a fos történt itt :O"
+  },
+];
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        {cardContentList.map((cardContent) => (
+        <Card cardContent={cardContent} />))}
     </div>
   );
 }

@@ -1,0 +1,10 @@
+.smallSize {
+    border: 2px solid hsl(184, 47%, 33%);
+    border-radius: 25px;
+    padding: 20px;
+    width: 20%;
+}
+
+.tumbnail {
+    width: 100%;
+}
