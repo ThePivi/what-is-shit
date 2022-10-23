@@ -1,5 +1,7 @@
 import Card from "../components/card/Card";
 
+import "./News.css"
+
 const cardContentList = [
     {
       id:"0",
@@ -35,21 +37,43 @@ const cardContentList = [
       clickBait:"Színes szagos csilli fos"
     },
     {
-      id:"3",
-      title:"Duke Nukem forever",
-      links:{
-            tumbnail:"https://www.hrkgame.com/media/games/.thumbnails/R4JcM.jpg/R4JcM-460x215.jpg", 
-            bigres:"bigres",
-        },
-      shits:98,
-      shareLink:"",
-      clickBait:"Minőségi kupac szar"
-    },
-  ];
+        id:"3",
+        title:"Duke Nukem forever",
+        links:{
+              tumbnail:"https://www.hrkgame.com/media/games/.thumbnails/R4JcM.jpg/R4JcM-460x215.jpg", 
+              bigres:"bigres",
+          },
+        shits:98,
+        shareLink:"",
+        clickBait:"Minőségi kupac szar"
+      },
+      {
+        id:"3",
+        title:"Duke Nukem forever",
+        links:{
+              tumbnail:"https://www.hrkgame.com/media/games/.thumbnails/R4JcM.jpg/R4JcM-460x215.jpg", 
+              bigres:"bigres",
+          },
+        shits:98,
+        shareLink:"",
+        clickBait:"Minőségi kupac szar"
+      },
+      {
+        id:"3",
+        title:"Duke Nukem forever",
+        links:{
+              tumbnail:"https://www.hrkgame.com/media/games/.thumbnails/R4JcM.jpg/R4JcM-460x215.jpg", 
+              bigres:"bigres",
+          },
+        shits:98,
+        shareLink:"",
+        clickBait:"Minőségi kupac szar"
+      },
+        ];
   
   function News () {
     return (
-        <div>
+        <div className="rows">
             {cardContentList.map((cardContent) => (
             <Card cardContent={cardContent} />))}
         </div>

@@ -10,7 +10,6 @@ function shitIdGenerator () {
 
 function Card (props) {
     return (
-        <span>
         <div className="smallSize" >
             {props.cardContent.title} {/* TODO ez a sor fromázandó, akár paraméterezve (a kinézetre vonatkozóan) kiemelhető külön komponensbe */}
             <div>
@@ -18,7 +17,6 @@ function Card (props) {
                 <Rating shitId={shitId} shitNumber={props.cardContent.shits}/>
             </div>
         </div>
-        </span>
     )
 }
 
