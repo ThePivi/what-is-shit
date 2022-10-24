@@ -11,10 +11,12 @@ function shitIdGenerator () {
 function Card (props) {
     return (
         <div className="smallSize" >
-            {props.cardContent.title} {/* TODO ez a sor fromázandó, akár paraméterezve (a kinézetre vonatkozóan) kiemelhető külön komponensbe */}
             <div>
-                <img id={shitIdGenerator()} className="tumbnail" src={props.cardContent.links.tumbnail} />
-                <Rating shitId={shitId} shitNumber={props.cardContent.shits}/>
+                {props.cardContent.title} {/* TODO ez a sor fromázandó, akár paraméterezve (a kinézetre vonatkozóan) kiemelhető külön komponensbe */}
+                <div>
+                    <img id={shitIdGenerator()} className="tumbnail" src={props.cardContent.links.tumbnail} />
+                    <Rating shitId={shitId} shitNumber={props.cardContent.shits}/>
+                </div>
             </div>
         </div>
     )
