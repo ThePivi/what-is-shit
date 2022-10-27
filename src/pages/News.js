@@ -1,4 +1,5 @@
 import Card from "../components/card/Card";
+import CardController from "../components/layout/CardController";
 
 import "./News.css"
 
@@ -73,9 +74,11 @@ const cardContentList = [
   
   function News () {
     return (
-        <div className="rows">
-            {cardContentList.map((cardContent) => (
-            <Card cardContent={cardContent} />))}
+        <div>
+            <CardController>
+                {cardContentList.map((cardContent) => (
+                    <Card cardContent={cardContent} />))}
+            </CardController>
         </div>
       );
 }
