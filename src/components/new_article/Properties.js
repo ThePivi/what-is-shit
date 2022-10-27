@@ -15,7 +15,7 @@ function Properties () {
             </div>
             <div>
                 <label className="form-label">Értékelések:</label> <br />
-                <label htmlFor="Grafika" className="form-label">Grafika</label>
+                <label htmlFor="Grafika" className="form-label">Grafika</label><label>50%</label>
                 <input type="range" className="form-range" id="Grafika"></input>
                 <label htmlFor="Zene" className="form-label">Zene</label>
                 <input type="range" className="form-range" id="Zene"></input>
