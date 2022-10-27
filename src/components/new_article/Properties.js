@@ -1,6 +1,15 @@
 function Properties () {
     return (
         <div className="col-lg-4 offset-lg-0">
+            <br/>
+            <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autocomplete="off"/>
+                <label className="btn btn-outline-primary" htmlFor="btnradio1">Játék</label>
+                <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autocomplete="off"/>
+                <label className="btn btn-outline-primary" for="btnradio2">Film</label>
+                <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autocomplete="off"/>
+                <label className="btn btn-outline-primary" for="btnradio3">Eszköz</label>
+            </div>
             <div>
                 <label>Cím:</label>
                 <input className="form-control" type="text" />
@@ -31,7 +40,7 @@ function Properties () {
                 <input type="range" className="form-range" id="Újrajátszhatóság"></input>
             </div>
             <div className="form-check form-switch">
-                <label htmlFor="Online required" label class="form-check-label">Online required</label>
+                <label htmlFor="Online required" label className="form-check-label">Online required</label>
                 <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
             </div>
             <div>
