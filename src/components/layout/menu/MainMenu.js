@@ -35,6 +35,9 @@ function MainMenu () {
                                 <Link className="nav-link" to="/new">Article Editor</Link>
                             </li>
                             <li>
+                                <Link className="nav-link" to="/plantoread">PlanToRead</Link>
+                            </li>
+                            <li>
                                 <Link className="nav-link" to="/aboutus">AboutUs</Link>
                             </li>
                         </ul>
