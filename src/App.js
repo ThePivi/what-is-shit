@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 
+import MainMenu from "./components/layout/menu/MainMenu";
+import ProfilePage from "./pages/ProfilePage";
 import News from "./pages/News";
 import NewArticle from "./pages/NewArticle";
-import MainMenu from "./components/layout/MainMenu";
 
 import "./bootstrap.css"
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<News />} />
         <Route path='/new' element={<NewArticle />} />
+        <Route path='/profile' element={<ProfilePage />} />
       </Routes>
     </div>
   );
