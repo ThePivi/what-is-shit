@@ -34,6 +34,9 @@ function MainMenu () {
                             <li>
                                 <Link className="nav-link" to="/new">Article Editor</Link>
                             </li>
+                            <li>
+                                <Link className="nav-link" to="/aboutus">AboutUs</Link>
+                            </li>
                         </ul>
                     </div>
                     <SearchField />
