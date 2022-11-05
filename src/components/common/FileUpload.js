@@ -1,4 +1,4 @@
-function FileUpload (props) {
+function FileUpload(props) {
     return (
         <div>
             <label>{props.name}:</label>
