@@ -10,12 +10,20 @@ function NewArticle() {
     const articleTypeRef = useRef({value:""});
     const smallPictureRef = useRef();
     const bigPictureRef = useRef();
+    const ratingListRef = useRef({value:[
+        {id:0, name:"Graphics" ,value:10},
+        {id:1, name:"Music" ,value:0},
+        {id:2, name:"Sounds" ,value:0},
+        {id:3, name:"Voice" ,value:0},
+        {id:4, name:"Story" ,value:0},
+        {id:5, name:"Controlls" ,value:0},
+        {id:6, name:"Replayability" ,value:0},
+    ]});
 
     function sendData(event) {
         event.preventDefault();
 
-        console.log(titleImputRef.current.value);
-        console.log(articleTypeRef.current.value);
+        console.log (ratingListRef);
     }
 
     return (
@@ -28,6 +36,7 @@ function NewArticle() {
                     title={titleImputRef} 
                     smallPicture={smallPictureRef}
                     bigPicture={bigPictureRef}
+                    ratingList={ratingListRef}
                 />
 
             </div>

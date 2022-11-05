@@ -5,12 +5,13 @@ import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 import RadioGroup from "../common/RadioGroup";
 import FileUpload from "../common/FileUpload";
+import RangeHorizontal from "../common/RangeHorizontal";
 
 function Properties (props) {
     const [ articleType, setArticleType ] = useState();
 
     const articleTypeList = [
-        {id:"Picsa",name:"Game"}, 
+        {id:0,name:"Game"}, 
         {id:1,name:"Movie"}, 
         {id:2,name:""},
     ];
@@ -20,22 +21,24 @@ function Properties (props) {
         props.articleType.current.value = event.target.value;
     }
 
+    function rangeRatingHadler (event) {
+        props.ratingList.current.value[event.target.id].value = event.target.valueAsNumber;
+    }
+
     return (
         <div className="col-lg-4 offset-lg-0">
-            <br/>
+            <div>
+                <button className="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                    <FontAwesomeIcon className="hidden" icon={faCaretLeft} />
+                </button>
+                <button className="btn btn-outline-dark"><FontAwesomeIcon className="hidden" icon={faCaretRight} /></button>
+                <small>Oldal panel elrejtés/megjelenítés!</small>
+            </div>
             <div>
                 <RadioGroup setRadioValue={radioArticleTypeHandler} groupName="articleType" radioList={articleTypeList}/>
                 <button className="btn btn-outline-primary float-end">
                     <FontAwesomeIcon className="hidden" icon={faPlus} />
                 </button>
-            </div>
-            <div>
-                <button className="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
-                    <FontAwesomeIcon className="hidden" icon={faCaretLeft} />
-
-                </button>
-                <button className="btn btn-outline-dark"><FontAwesomeIcon className="hidden" icon={faCaretRight} /></button>
-                <small>Oldal panel elrejtés/megjelenítés!</small>
             </div>
             <div>
                 <label>Title:</label>
@@ -44,21 +47,12 @@ function Properties (props) {
             <FileUpload setFile={props.smallPicture} name="Tumbnail" />
             <FileUpload setFile={props.bigPicture} name="High Resolution" />
             <div>
-                <label className="form-label">Értékelések:</label> <br />
-                <label htmlFor="Grafika" className="form-label">Grafika</label><label>50%</label>
-                <input type="range" className="form-range" id="Grafika"></input>
-                <label htmlFor="Zene" className="form-label">Zene</label>
-                <input type="range" className="form-range" id="Zene"></input>
-                <label htmlFor="Hangok" className="form-label">Hangok</label>
-                <input type="range" className="form-range" id="Hangok"></input>
-                <label htmlFor="Szinkron" className="form-label">Szinkron</label>
-                <input type="range" className="form-range" id="Szinkron"></input>
-                <label htmlFor="Történet" className="form-label">Történet</label>
-                <input type="range" className="form-range" id="Történet"></input>
-                <label htmlFor="Irányítás" className="form-label">Irányítás</label>
-                <input type="range" className="form-range" id="Irányítás"></input>
-                <label htmlFor="Újrajátszhatóság" className="form-label">Újrajátszhatóság</label>
-                <input type="range" className="form-range" id="Újrajátszhatóság"></input>
+                <label className="form-label">Ratings:</label> <br />
+                {props.ratingList.current.value.map((rating) => {
+                    return (
+                        <RangeHorizontal setValue={rangeRatingHadler} range={rating} />
+                    );
+                })}
             </div>
             <div className="form-check form-switch">
                 <label htmlFor="Online required" label className="form-check-label">Online required</label>
