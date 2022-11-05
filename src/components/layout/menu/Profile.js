@@ -7,10 +7,8 @@ function Profile(props) {
         <div>
             <Link className="nav-link" to="/profile">
                 <ul className="navbar-nav me-auto">
-                    
-                        <img className="icon" src={props.imageUrl} />
-                        ProfileName
-                    
+                    <img className="icon" src={props.imageUrl} />
+                    ProfileName
                 </ul>
             </Link>
         </div>

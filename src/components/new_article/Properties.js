@@ -1,18 +1,43 @@
-function Properties () {
+import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+
+import RadioGroup from "../common/RadioGroup";
+
+function Properties (props) {
+    const [ articleType, setArticleType ] = useState();
+    const articleTypeList = [
+        {id:"Picsa",name:"Game"}, 
+        {id:1,name:"Movie"}, 
+        {id:2,name:""},
+    ];
+
+    function radioArticleTypeHandler (event) {
+        setArticleType(event.target.value);
+        props.articleType.current.value = event.target.value;
+    }
+
     return (
         <div className="col-lg-4 offset-lg-0">
             <br/>
-            <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autocomplete="off"/>
-                <label className="btn btn-outline-primary" htmlFor="btnradio1">Játék</label>
-                <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autocomplete="off"/>
-                <label className="btn btn-outline-primary" for="btnradio2">Film</label>
-                <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autocomplete="off"/>
-                <label className="btn btn-outline-primary" for="btnradio3">Eszköz</label>
+            <div>
+                <RadioGroup setRadioValue={radioArticleTypeHandler} groupName="articleType" radioList={articleTypeList}/>
+                <button className="btn btn-outline-primary float-end">
+                    <FontAwesomeIcon className="hidden" icon={faPlus} />
+                </button>
             </div>
             <div>
-                <label>Cím:</label>
-                <input className="form-control" type="text" />
+                <button className="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                    <FontAwesomeIcon className="hidden" icon={faCaretLeft} />
+
+                </button>
+                <button className="btn btn-outline-dark"><FontAwesomeIcon className="hidden" icon={faCaretRight} /></button>
+                <small>Oldal panel elrejtés/megjelenítés!</small>
+            </div>
+            <div>
+                <label>Title:</label>
+                <input className="form-control" type="text" ref={props.title}/>
             </div>
             <div>
                 <label>Kis kép:</label>
@@ -59,7 +84,10 @@ function Properties () {
             </div>
             <div>
                 <button type="submit" className="btn btn-outline-primary">Save Button</button>
-                <button type="submit" className="btn btn-outline-warning">Publish Button</button>
+                <div className="form-check form-switch">
+                    <label htmlFor="Online required" label className="form-check-label">Published</label>
+                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
+                </div>
             </div>
         </div>
     );

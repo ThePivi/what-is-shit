@@ -1,7 +1,7 @@
 function AboutUs () {
     return (
         <div>
-            PIVI :3
+            <h1>PIVI :3</h1>
         </div>
     );
 }
