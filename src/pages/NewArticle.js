@@ -8,6 +8,8 @@ import "./NewArticle.css"
 function NewArticle() {
     const titleImputRef = useRef();
     const articleTypeRef = useRef({value:""});
+    const smallPictureRef = useRef();
+    const bigPictureRef = useRef();
 
     function sendData(event) {
         event.preventDefault();
@@ -21,7 +23,12 @@ function NewArticle() {
             <div className="row margin-12px">
 
                 <Editor />
-                <Properties articleType={articleTypeRef} title={titleImputRef} />
+                <Properties 
+                    articleType={articleTypeRef} 
+                    title={titleImputRef} 
+                    smallPicture={smallPictureRef}
+                    bigPicture={bigPictureRef}
+                />
 
             </div>
         </form>

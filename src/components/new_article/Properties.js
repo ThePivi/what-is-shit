@@ -4,9 +4,11 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 import RadioGroup from "../common/RadioGroup";
+import FileUpload from "../common/FileUpload";
 
 function Properties (props) {
     const [ articleType, setArticleType ] = useState();
+
     const articleTypeList = [
         {id:"Picsa",name:"Game"}, 
         {id:1,name:"Movie"}, 
@@ -39,14 +41,8 @@ function Properties (props) {
                 <label>Title:</label>
                 <input className="form-control" type="text" ref={props.title}/>
             </div>
-            <div>
-                <label>Kis kép:</label>
-                <input className="form-control" type="file" />
-            </div>
-            <div>
-                <label>Nagy kép/video:</label>
-                <input className="form-control" type="file" />
-            </div>
+            <FileUpload setFile={props.smallPicture} name="Tumbnail" />
+            <FileUpload setFile={props.bigPicture} name="High Resolution" />
             <div>
                 <label className="form-label">Értékelések:</label> <br />
                 <label htmlFor="Grafika" className="form-label">Grafika</label><label>50%</label>
