@@ -27,14 +27,38 @@ function NewArticle() {
 
     function sendData(event) {
         event.preventDefault();
-        console.log(titleImputRef.current.value);
-        console.log(articleTypeRef.current.value);
-        console.log(smallPictureRef);
-        console.log(bigPictureRef);
-        console.log(ratingListRef.current.value);
-        console.log(onlineRequiredRef.current.checked);
-        console.log(clickBaitRef.current.value);
-        console.log(genreListRef.current.selectedOptions);
+
+        const genreList = [];
+        
+        for(let selectedOption of genreListRef.current.selectedOptions) {
+            
+            genreList.push ({id: selectedOption.index, value: selectedOption.value});
+            
+        };
+    
+        const articleData = {
+            articleType: articleTypeRef.current.value,
+            title: titleImputRef.current.value,
+            smallPictureUrl: smallPictureRef.current.value,
+            bigPictureUrl: bigPictureRef.current.value,
+            ratingList: ratingListRef.current.value,
+            onlineRequired: onlineRequiredRef.current.checked,
+            clickBait: clickBaitRef.current.value,
+            genreList: genreList
+        }
+
+        console.log(articleData);
+
+        fetch (
+            'https://wiss-e883e-default-rtdb.europe-west1.firebasedatabase.app/article.json',
+            {
+                method: 'POST',
+                body: JSON.stringify(articleData),
+                headers: {
+                    'content-Type': 'application/json'
+                }
+            }
+        );
     }
 
     return (
