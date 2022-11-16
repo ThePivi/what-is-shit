@@ -5,7 +5,6 @@ import parse from 'html-react-parser';
 
 import "./Editor.css";
 
-
 function Editor() {
     const [text, setText] = useState("")
     return (
