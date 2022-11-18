@@ -1,0 +1,12 @@
+
+.icon {
+    cursor: default;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    transition: border-radius 2s;
+}
+
+.icon:hover {
+    border-radius: 10%;
+}

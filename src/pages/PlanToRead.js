@@ -1,7 +1,5 @@
-import Card from "../components/card/Card";
 import CardController from "../components/layout/CardController";
-
-import "./News.css"
+import Card from "../components/card/Card";
 
 const cardContentList = [
     {
@@ -36,51 +34,18 @@ const cardContentList = [
       shits:10,
       shareLink:"",
       clickBait:"Színes szagos csilli fos"
-    },
-    {
-        id:"3",
-        title:"Duke Nukem forever",
-        links:{
-              tumbnail:"https://www.hrkgame.com/media/games/.thumbnails/R4JcM.jpg/R4JcM-460x215.jpg", 
-              bigres:"bigres",
-          },
-        shits:98,
-        shareLink:"",
-        clickBait:"Minőségi kupac szar"
-      },
-      {
-        id:"3",
-        title:"Duke Nukem forever",
-        links:{
-              tumbnail:"https://www.hrkgame.com/media/games/.thumbnails/R4JcM.jpg/R4JcM-460x215.jpg", 
-              bigres:"bigres",
-          },
-        shits:98,
-        shareLink:"",
-        clickBait:"Minőségi kupac szar"
-      },
-      {
-        id:"3",
-        title:"Duke Nukem forever",
-        links:{
-              tumbnail:"https://www.hrkgame.com/media/games/.thumbnails/R4JcM.jpg/R4JcM-460x215.jpg", 
-              bigres:"bigres",
-          },
-        shits:98,
-        shareLink:"",
-        clickBait:"Minőségi kupac szar"
-      },
-        ];
-  
-  function News () {
+    }
+];
+function PlanToRead () {
     return (
         <div>
             <CardController>
                 {cardContentList.map((cardContent) => (
                     <Card cardContent={cardContent} />))}
             </CardController>
+            Itt lesznek azok a cikkek, amiket beszivecskézett korábban
         </div>
-      );
+    );
 }
 
-export default News;
+export default PlanToRead;
