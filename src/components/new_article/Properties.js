@@ -16,6 +16,12 @@ function Properties(props) {
         { id: 2, name: "" },
     ];
 
+    const genreList = [
+        { id: 0, name: "Adventure" },
+        { id: 1, name: "Startegy" },
+        { id: 2, name: "First Person Shooter" },
+    ]
+
     function radioArticleTypeHandler(event) {
         setArticleType(event.target.value);
         props.articleType.current.value = event.target.value;
@@ -73,13 +79,14 @@ function Properties(props) {
                 <input className="form-control" type="text" ref={props.clickBait}/>
             </div>
             <div className="form-group">
-                <label>Zsanra lista:</label>
+                <label>Genre List:</label>
+                <button className="btn btn-outline-primary float-end" id="articletype" onClick={modalAddNewRecord}>
+                    <FontAwesomeIcon className="hidden" icon={faPlus} />
+                </button>
                 <select multiple="true" className="form-select" id="exampleSelect2" ref={props.genreList}>
-                    <option>beégetett1</option>
-                    <option>beégetett2</option>
-                    <option>beégetett3</option>
-                    <option>beégetett4</option>
-                    <option>beégetett5</option>
+                    {genreList.map((genre) => {
+                        return (<option>{genre.name}</option>);
+                    })}
                 </select>
             </div>
             <div>
