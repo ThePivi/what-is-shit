@@ -72,11 +72,11 @@ function Properties(props) {
             </div>
             <div className="form-check form-switch">
                 <label htmlFor="Online required" label className="form-check-label">Online required</label>
-                <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" ref={props.onlineRequired}/>
+                <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" ref={props.onlineRequired} />
             </div>
             <div>
                 <label>ClickBait:</label>
-                <input className="form-control" type="text" ref={props.clickBait}/>
+                <input className="form-control" type="text" ref={props.clickBait} />
             </div>
             <div className="form-group">
                 <label>Genre List:</label>
