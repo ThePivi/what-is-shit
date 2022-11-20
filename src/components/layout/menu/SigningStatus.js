@@ -6,7 +6,7 @@ import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
 import SigningModal from "../../modal/SigningModal";
 
-import "./Profile.css"
+import "./SigningStatus.css"
 
 function SigningStatus(props) {
     const [loggedIn, setLoggedIn] = useState(false);
