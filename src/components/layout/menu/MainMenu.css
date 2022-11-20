@@ -1,3 +1,15 @@
 .navbar-placeholder {
     height: 4rem;
 }
+
+.split-button-navlink {
+    padding: 0 !important;
+}
+
+.day-night-textcolor {
+    color: rgb(216, 188, 155);
+}
+
+.margin-left {
+    margin-left: 3px;
+}
