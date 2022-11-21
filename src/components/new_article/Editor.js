@@ -5,8 +5,7 @@ import parse from 'html-react-parser';
 
 import "./Editor.css";
 
-function Editor() {
-    const [text, setText] = useState("")
+function Editor(props) {
     return (
         <div className="col-lg-8 offset-lg-0">
             <label>Editor</label>
@@ -14,15 +13,11 @@ function Editor() {
                 <CKEditor
                     className="editor2"
                     editor={ClassicEditor}
-                    data={text}
+                    data={props.articleBody}
                     onChange={(event, editor) => {
                         const data = editor.getData()
-                        setText(data)
+                        props.setArticleBody(data)
                     }} />
-            </div>
-            <div>
-                <h2>Content</h2>
-                <p>{parse(text)}</p>
             </div>
         </div >
     );
