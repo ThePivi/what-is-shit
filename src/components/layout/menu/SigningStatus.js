@@ -13,21 +13,29 @@ function SigningStatus(props) {
     const [showSignIn, setShowSignIn] = useState(false);
     const [signingUp, setSigningUp] = useState(false);
 
-    function signInHandle () {
-        setShowSignIn(true);
+    function logInHandle () {
+        loggedIn?setLoggedIn(false):setLoggedIn(true);
+    }
+
+    function showSignInHandle () {
+        showSignIn?setShowSignIn(false):setShowSignIn(true);
+    }
+
+    function switchSignInAndSignUpHandle () {
+        signingUp?setSigningUp(false):setSigningUp(true);
     }
 
     return (
         <div>
             {loggedIn ?
-                <NavLink className="nav-link" to="/profile">
+                <NavLink className="btn btn-primary" to="/profile">
                     <ul className="navbar-nav me-auto">
                         <img className="icon" src={props.imageUrl} />
-                        ProfileName
+                        &nbsp;ProfileName
                     </ul>
                 </NavLink>
                 :
-                <button className="btn btn-primary" onClick={signInHandle} >
+                <button className="btn btn-primary" onClick={showSignInHandle} >
                     <ul className="navbar-nav me-auto">
                         <FontAwesomeIcon className="hidden icon" icon={faArrowRightToBracket} />
                         &nbsp;signIn/signUp
@@ -35,7 +43,12 @@ function SigningStatus(props) {
                 </button>
             }
             {showSignIn ?
-                <SigningModal />
+                <SigningModal 
+                    signingUp={signingUp} 
+                    switch={switchSignInAndSignUpHandle} 
+                    show={showSignInHandle}
+                    logIn={logInHandle}
+                />
                 :
                 null
             }

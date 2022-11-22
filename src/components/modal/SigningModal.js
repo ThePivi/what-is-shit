@@ -1,24 +1,31 @@
-function SigningModal() {
+import Modal from "react-bootstrap/Modal";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
+
+import SignUp from "./signing/SignUp";
+import SignIn from "./signing/SignIn";
+
+function SigningModal(props) {
     return (
-        <div className="modal">
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title">Modal title</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div className="modal-body">
-                        <p>Modal body text goes here.</p>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-primary">Save changes</button>
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Modal show={true} onHide={props.show}>
+            <Modal.Header closeButton>
+                <Modal.Title>{props.signingUp ? "SignUp to What'Z Shit" : "SignIn to What'Z Shit"}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Form>
+                    {props.signingUp ? <SignUp /> : <SignIn />}
+                    <Button variant="primary" onClick={props.logIn}>
+                        {props.signingUp ? "Register my account":"Log in to my account"}
+                    </Button>
+                </Form>
+            </Modal.Body>
+            <Alert key="warning" variant="warning">
+                <Alert.Link onClick={props.switch}>
+                    Click here to switch to {props.signingUp ? "signIn" : "signUp"}...
+                </Alert.Link>
+            </Alert>
+        </Modal>
     );
 
 }
