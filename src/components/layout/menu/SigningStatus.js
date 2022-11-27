@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
@@ -11,12 +12,19 @@ import SigningModal from "../../modal/SigningModal";
 import "./SigningStatus.css"
 
 function SigningStatus(props) {
+    const navigate = useNavigate();
     const [loggedIn, setLoggedIn] = useState(false);
     const [showSignIn, setShowSignIn] = useState(false);
     const [signingUp, setSigningUp] = useState(false);
 
     function logInHandle() {
-        loggedIn ? setLoggedIn(false) : setLoggedIn(true);
+        if (loggedIn) {
+            setLoggedIn(false);
+            navigate('/', { replace: true });
+            
+        } else {
+            setLoggedIn(true);
+        }
     }
 
     function showSignInHandle() {
