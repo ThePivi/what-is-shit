@@ -1,4 +1,3 @@
-
 .icon {
     cursor: default;
     border-radius: 50%;
@@ -9,4 +8,8 @@
 
 .icon:hover {
     border-radius: 10%;
+}
+
+.after-display-none::after {
+    display: none !important;
 }
