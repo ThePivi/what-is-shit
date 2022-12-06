@@ -47,6 +47,9 @@ function SigningStatus(props) {
                         <Dropdown.Item>
                             <NavLink className="nav-link" to="/profile">Profile</NavLink>
                         </Dropdown.Item>
+                        <Dropdown.Item>
+                            <NavLink className="nav-link" to="/layoutEditor">Layout</NavLink>
+                        </Dropdown.Item>
                         <Dropdown.Item onClick={logInHandle}>Sign Out</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
