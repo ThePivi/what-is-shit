@@ -85,7 +85,7 @@ function Properties(props) {
                 </button>
                 <select multiple="true" className="form-select" id="exampleSelect2" ref={props.genreList}>
                     {genreList.map((genre) => {
-                        return (<option>{genre.name}</option>);
+                        return (<option key={genre.name + genre.id}>{genre.name}</option>);
                     })}
                 </select>
             </div>

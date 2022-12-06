@@ -17,7 +17,7 @@ function RadioGroup(props) {
             {props.radioList.map((buttonProps) => {
                 return (
                     <button
-                        key={buttonProps.id}
+                        key={buttonProps.name + buttonProps.id}
                         id={buttonProps.id}
                         className={checkedButton == buttonProps.id ? "btn btn-primary" : "btn btn-outline-primary"}
                         type="button"

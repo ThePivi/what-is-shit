@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useState } from "react";
 
 import Editor from "../components/new_article/Editor"
 import Properties from "../components/new_article/Properties"
@@ -6,13 +7,15 @@ import Properties from "../components/new_article/Properties"
 import "./NewArticle.css"
 
 function NewArticle() {
+    const [articleBody, setArticleBody] = useState("")
+
     const titleImputRef = useRef();
     const articleTypeRef = useRef({ value: "" });
     const smallPictureRef = useRef();
     const bigPictureRef = useRef();
     const ratingListRef = useRef({
         value: [
-            { id: 0, name: "Graphics", value: 10 },
+            { id: 0, name: "Graphics", value: 0 },
             { id: 1, name: "Music", value: 0 },
             { id: 2, name: "Sounds", value: 0 },
             { id: 3, name: "Voice", value: 0 },
@@ -44,7 +47,8 @@ function NewArticle() {
             ratingList: ratingListRef.current.value,
             onlineRequired: onlineRequiredRef.current.checked,
             clickBait: clickBaitRef.current.value,
-            genreList: genreList
+            genreList: genreList,
+            articleBody: articleBody
         }
 
         console.log(articleData);
@@ -65,7 +69,7 @@ function NewArticle() {
         <form onSubmit={sendData}>
             <div className="row margin-12px">
 
-                <Editor />
+                <Editor articleBody={articleBody} setArticleBody={setArticleBody}/>
                 <Properties
                     articleType={articleTypeRef}
                     title={titleImputRef}

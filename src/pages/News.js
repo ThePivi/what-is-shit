@@ -49,7 +49,7 @@ const cardContentList = [
         clickBait:"Minőségi kupac szar"
       },
       {
-        id:"3",
+        id:"4",
         title:"Duke Nukem forever",
         links:{
               tumbnail:"https://www.hrkgame.com/media/games/.thumbnails/R4JcM.jpg/R4JcM-460x215.jpg", 
@@ -60,7 +60,7 @@ const cardContentList = [
         clickBait:"Minőségi kupac szar"
       },
       {
-        id:"3",
+        id:"5",
         title:"Duke Nukem forever",
         links:{
               tumbnail:"https://www.hrkgame.com/media/games/.thumbnails/R4JcM.jpg/R4JcM-460x215.jpg", 
@@ -77,7 +77,7 @@ const cardContentList = [
         <div>
             <CardController>
                 {cardContentList.map((cardContent) => (
-                    <Card cardContent={cardContent} />))}
+                    <Card key={"card" + cardContent.id} cardContent={cardContent} />))}
             </CardController>
         </div>
       );

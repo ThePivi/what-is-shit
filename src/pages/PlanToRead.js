@@ -41,7 +41,7 @@ function PlanToRead () {
         <div>
             <CardController>
                 {cardContentList.map((cardContent) => (
-                    <Card cardContent={cardContent} />))}
+                    <Card key={"card" + cardContent.id} cardContent={cardContent} />))}
             </CardController>
             Itt lesznek azok a cikkek, amiket beszivecskézett korábban
         </div>
