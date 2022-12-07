@@ -6,9 +6,13 @@ import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import RadioGroup from "../common/RadioGroup";
 import FileUpload from "../common/FileUpload";
 import RangeHorizontal from "../common/RangeHorizontal";
+import ModalSaveOneRecord from "../common/ModalSaveOneRecord";
 
 function Properties(props) {
     const [articleType, setArticleType] = useState();
+    const [modalPath, setModalPath] = useState ("");
+    const [modalTitle, setModalTitle] = useState ("");
+    const [modalVisible, setModalVisible] = useState(false);
 
     const articleTypeList = [
         { id: 0, name: "Game" },
@@ -31,9 +35,29 @@ function Properties(props) {
         props.ratingList.current.value[event.target.id].value = event.target.valueAsNumber;
     }
 
-    function modalAddNewRecord(event) {
+    function addNewArticleTypeHandler (event) {
         event.preventDefault();
-        console.log("Open a generic modal for adding a new " + event.target.id);
+        modalAddNewRecord("Article type");
+    }
+
+    function addNewRatingHandler (event) {
+        event.preventDefault();
+        modalAddNewRecord("Rating type");
+    }
+
+    function addNewGenreHandler (event) {
+        event.preventDefault();
+        modalAddNewRecord("Genre type");
+    }
+
+    function modalAddNewRecord(tableName) {
+        setModalPath('https://wiss-e883e-default-rtdb.europe-west1.firebasedatabase.app/' + tableName.replace(" ","").toLowerCase() + '.json');
+        setModalTitle(tableName);
+        changeModalVisibility();
+    }
+
+    function changeModalVisibility () {
+        modalVisible?setModalVisible(false):setModalVisible(true);
     }
 
     return (
@@ -47,7 +71,7 @@ function Properties(props) {
             </div>
             <div>
                 <RadioGroup setRadioValue={radioArticleTypeHandler} groupName="articleType" radioList={articleTypeList} />
-                <button className="btn btn-outline-primary float-end" id="articletype" onClick={modalAddNewRecord}>
+                <button className="btn btn-outline-primary float-end" id="articletype" onClick={addNewArticleTypeHandler}>
                     <FontAwesomeIcon className="hidden" icon={faPlus} />
                 </button>
             </div>
@@ -60,7 +84,7 @@ function Properties(props) {
             <div>
                 <div>
                     <label className="form-label">Ratings:</label>
-                    <button className="btn btn-outline-primary float-end" id="ratingtype" onClick={modalAddNewRecord}>
+                    <button className="btn btn-outline-primary float-end" id="ratingtype" onClick={addNewRatingHandler}>
                         <FontAwesomeIcon className="hidden" icon={faPlus} />
                     </button>
                 </div>
@@ -80,7 +104,7 @@ function Properties(props) {
             </div>
             <div className="form-group">
                 <label>Genre List:</label>
-                <button className="btn btn-outline-primary float-end" id="articletype" onClick={modalAddNewRecord}>
+                <button className="btn btn-outline-primary float-end" id="genretype" onClick={addNewGenreHandler}>
                     <FontAwesomeIcon className="hidden" icon={faPlus} />
                 </button>
                 <select multiple="true" className="form-select" id="exampleSelect2" ref={props.genreList}>
@@ -96,6 +120,12 @@ function Properties(props) {
                     <input className="form-check-input border-warning" type="checkbox" id="flexSwitchCheckDefault" />
                 </div>
             </div>
+            <ModalSaveOneRecord 
+                pathToSave={modalPath} 
+                modalTitle={modalTitle} 
+                visible={modalVisible} 
+                show={changeModalVisibility} 
+            />
         </div>
     );
 }
