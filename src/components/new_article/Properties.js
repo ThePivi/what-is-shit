@@ -10,9 +10,13 @@ import ModalSaveOneRecord from "../common/ModalSaveOneRecord";
 
 function Properties(props) {
     const [articleType, setArticleType] = useState();
-    const [modalPath, setModalPath] = useState ("");
-    const [modalTitle, setModalTitle] = useState ("");
     const [modalVisible, setModalVisible] = useState(false);
+    const [modalInput, setModalInputs] = useState({
+        modifiedItem:{},
+        title:"",
+        dbUrl:"",
+        tableName:""
+    });
 
     const articleTypeList = [
         { id: 0, name: "Game" },
@@ -50,9 +54,13 @@ function Properties(props) {
         modalAddNewRecord("Genre type");
     }
 
-    function modalAddNewRecord(tableName) {
-        setModalPath('https://wiss-e883e-default-rtdb.europe-west1.firebasedatabase.app/' + tableName.replace(" ","").toLowerCase() + '.json');
-        setModalTitle(tableName);
+    function modalAddNewRecord(title) {
+        setModalInputs({
+            modifiedItem:{id:22, name:"pipacs"},
+            title:title,
+            dbUrl:"https://wiss-e883e-default-rtdb.europe-west1.firebasedatabase.app/",
+            tableName:title.replace(" ","").toLowerCase() + '.json'
+        });
         changeModalVisibility();
     }
 
@@ -121,8 +129,7 @@ function Properties(props) {
                 </div>
             </div>
             <ModalSaveOneRecord 
-                pathToSave={modalPath} 
-                modalTitle={modalTitle} 
+                modalInput={modalInput}
                 visible={modalVisible} 
                 show={changeModalVisibility} 
             />

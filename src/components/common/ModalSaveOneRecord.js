@@ -1,20 +1,29 @@
-import { useRef } from "react";
+import { useState } from "react";
 
 import Modal from "react-bootstrap/Modal";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 function ModalSaveOneRecord(props) {
-    const modalImputValue = useRef();
+    const [inputValue, setInputValue] = useState(props.modalInput.modifiedItem.name);
 
-    function saveRecordToSpecifiedPath () {
+    function inputChangeHandle (event) {
+        setInputValue(event.target.value);
+    }
+
+    function saveRecordToSpecifiedPath() {
+        let id = 0;
+        if (props.modalInput.modifiedItem.id) {
+            id = props.modalInput.modifiedItem.id;
+        }
+
         const recordData = {
-            id:0,
-            name:modalImputValue.current.value
+            id: id,
+            name: inputValue
         };
-        
-        fetch (
-            props.pathToSave,
+
+        fetch(
+            props.modalInput.dbUrl + props.modalInput.tableName,
             {
                 method: 'POST',
                 body: JSON.stringify(recordData),
@@ -29,13 +38,14 @@ function ModalSaveOneRecord(props) {
     return (
         <Modal show={props.visible} onHide={props.show}>
             <Modal.Header closeButton>
-                <Modal.Title>{"Add new " + props.modalTitle}</Modal.Title>
+                <Modal.Title>{"Save " + props.modalInput.title + " to database"}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
-                    {props.modalTitle + ": "} <input type="text" ref={modalImputValue} />
-                    <Button variant="primary" onClick={saveRecordToSpecifiedPath}>
-                        {"Save " + props.modalTitle}
+                    {props.modalInput.title + ": "}
+                    <input type="text" value={inputValue} onChange={inputChangeHandle} />
+                    <Button variant="primary btn-sm float-end" onClick={saveRecordToSpecifiedPath}>
+                        {"Save " + props.modalInput.title}
                     </Button>
                 </Form>
             </Modal.Body>
